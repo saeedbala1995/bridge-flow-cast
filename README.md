@@ -34,17 +34,13 @@ The predictor estimates the **water surface profile** across the bridge under fl
 
 - **X-axis (normalized longitudinal coordinate):**  
   Streamwise distance along the bridge normalized by the bridge length \(L\).  
-  \[
-  \frac{x}{L}
-  \]
+  x/L
   where \(x\) is the position along the bridge deck and \(L\) is the total bridge length.  
   Predictions are made at 61 discrete non-dimensional points between the upstream and downstream sections.
 
 - **Y-axis (normalized vertical coordinate):**  
   Vertical position of the water surface, expressed as:  
-  \[
-  \frac{y}{h + D}
-  \]
+  y/(h+D)
   where:  
   - \( y \) = water level (vertical coordinate),  
   - \( h \) = pier height,  
