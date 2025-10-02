@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
-from utils import load_scaler_from_npz, ensure_3d_input
+from utils import load_scaler, ensure_3d_input
 
 def predict(args):
     # load model
@@ -16,7 +16,7 @@ def predict(args):
     # load scaler (mandatory)
     if not os.path.exists(args.scaler):
         raise FileNotFoundError(f"Scaler not found at {args.scaler}.")
-    scaler = load_scaler_from_npz(args.scaler)
+    scaler = load_scaler(args.scaler)
 
     # load input
     df = pd.read_csv(args.input)
@@ -49,13 +49,13 @@ def predict(args):
     plt.ylabel('Water level (m)')
     plt.legend()
     plt.tight_layout()
-    plt.savefig(args.out.replace('.csv','.png'))
-    print("Plot saved to", args.out.replace('.csv','.png'))
+    plt.savefig(args.out.replace('.csv', '.png'))
+    print("Plot saved to", args.out.replace('.csv', '.png'))
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', required=True, help='Path to LSTM.h5')
-    parser.add_argument('--scaler', required=True, help='Path to scaler file (joblib or npz)')
+    parser.add_argument('--model', required=True, help='Path to LSTM model (.keras or .h5)')
+    parser.add_argument('--scaler', required=True, help='Path to scaler file (.joblib or .npz)')
     parser.add_argument('--input', required=True, help='Path to input CSV')
     parser.add_argument('--out', default='predictions.csv', help='Output CSV path')
     args = parser.parse_args()
