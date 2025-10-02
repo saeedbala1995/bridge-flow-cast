@@ -81,9 +81,9 @@ bridge-flow-cast/
 ## 📑 Notes
 
 - Input CSV must contain at least the following columns:
-  - `depth`
-  - `velocity`
-  - `froude`
+  - `Flow depth in River`
+  - `Mean Flow Velocity`
+  - `Froude Number in river`
 
 - Predictions are based on the optimized LSTM model described in the published paper.  
 - Both the trained **model (`.keras`)** and **scaler (`.joblib`)** are provided, making the predictor **ready-to-run**.  
