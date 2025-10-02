@@ -2,7 +2,7 @@
 
 LSTM-based predictor for forecasting water surface profiles over bridges during extreme floods.
 
-**Important:** This predictor requires both the trained LSTM model (`LSTM.h5`) and the trained scaler (`scaler.joblib` or `scaler.npz`) inside the `model/` directory. Without the scaler, predictions will not be valid.
+**Important:** This predictor requires both the trained LSTM model (`LSTM.h5`) and the trained scaler (`scaler.joblib`) inside the `model/` directory. Without the scaler, predictions will not be valid.
 
 ## Quick start
 1. Install dependencies:
@@ -10,7 +10,7 @@ LSTM-based predictor for forecasting water surface profiles over bridges during 
    pip install -r requirements.txt
    ```
 
-2. Place your `LSTM.h5` model and `scaler.joblib` (or `scaler.npz`) in the `model/` folder.
+2. Be sure `LSTM.h5` model and `scaler.joblib` are in the `model/` folder.
 
 3. Run prediction:
    ```bash
