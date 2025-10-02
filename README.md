@@ -32,30 +32,33 @@ LSTM-based predictor for forecasting **water surface profiles over bridges durin
 
 The predictor estimates the **water surface profile** across the bridge under flood scenarios.  
 
-- **X-axis (longitudinal coordinate):**  
-  Distance along the bridge (m). In this model, predictions are made at 61 discrete points between upstream and downstream.
+- **X-axis (normalized longitudinal coordinate):**  
+  Streamwise distance along the bridge normalized by the bridge length \(L\).  
+  \[
+  \frac{x}{L}
+  \]
+  where \(x\) is the position along the bridge deck and \(L\) is the total bridge length.  
+  Predictions are made at 61 discrete non-dimensional points between the upstream and downstream sections.
 
 - **Y-axis (normalized vertical coordinate):**  
-  Vertical position of the water surface, expressed as:
-
+  Vertical position of the water surface, expressed as:  
   \[
   \frac{y}{h + D}
   \]
-
   where:  
   - \( y \) = water level (vertical coordinate),  
   - \( h \) = pier height,  
   - \( D \) = deck thickness.  
 
-  Using \( y/(h+D) \) ensures that results are **dimensionless**, making them comparable across different bridge geometries and scales.
+  This makes the results **dimensionless**, ensuring comparability across different bridge geometries and scales.
 
 - **Output file (`predictions.csv`):**  
   Contains normalized water surface elevations at 61 points (`wl_0` … `wl_60`).  
 
 - **Output plot (`predictions.png`):**  
   Shows the predicted water surface profile with:  
-  - X-axis: distance along the bridge (m),  
-  - Y-axis: normalized water surface elevation \( y/(h+D) \).  
+  - X-axis: normalized streamwise distance \(x/L\),  
+  - Y-axis: normalized water surface elevation \(y/(h+D)\).
 
 ---
 
